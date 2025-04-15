@@ -15,13 +15,24 @@ function extractTextContent(doc) {
   return firstHundredWords + (words.length > 100 ? '...' : '');
 }
 
+// Function to get word count
+function getWordCount(doc) {
+  // Get all text nodes from the body
+  const bodyText = doc.body.innerText || doc.body.textContent || '';
+  
+  const count = words.length
+  
+  return words.length;
+}
+
 // Function to clip the current page
 function clipCurrentPage() {
   const pageData = {
     title: document.title,
     url: window.location.href,
     timestamp: new Date().toISOString(),
-    content: extractTextContent(document)
+    content: extractTextContent(document),
+    word_count: getWordCount(document)
   };
   
   // Send the data to the background script
